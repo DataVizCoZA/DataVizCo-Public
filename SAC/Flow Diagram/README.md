@@ -1,5 +1,7 @@
 # Order Flow Funnel — SAC Custom Widget (v0.3.0)
 
+![Hero image](Example.png)
+
 A process-flow funnel for SAP Analytics Cloud. Each **measure** is a stage; the
 bars are joined by tapering **flow ribbons**, sized by rate and coloured by
 **variance to target** (green → amber → red). A dashed outline marks each target,
