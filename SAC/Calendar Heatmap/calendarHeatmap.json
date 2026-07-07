@@ -1,0 +1,157 @@
+{
+  "eula": "",
+  "vendor": "DataVizCo",
+  "license": "",
+  "id": "com.dvc.sac.calendarheatmap",
+  "version": "0.2.0",
+  "name": "Calendar Heatmap",
+  "newInstancePrefix": "CalendarHeatmap",
+  "description": "Dense calendar heatmap: plots a measure by date, coloured on a configurable scale. Toggle horizontal (year bands) or vertical (year columns) orientation.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABWUlEQVR4nO2ZsU0EMRBF96CLawCRXXgpHZwIycgogDIo4LLLCBEdkBKSIRqgC7REu5rAY/+TRvoSvJfOaP39pbW/xtMEAAAAAAD/kY3SNM9vc/qBzc36jaf3u7Tvcf+89v283Kd9l7entW97PKR93w+vZ/e1uOgVp6m/+VjvbT7We5uP9d6mYl3tyxga8NfBALcANxjgFuAGA0YN8Z7v1eM932Kpx3u+xVIf3d9LXe2DBMmdz91VGiauP77OTmRqsqxet8XwF+iJiHU1kanJsnrdDA5BtwA3GOAW4AYD3ALcDA2I922vriYyNVlWrwsJpUlQnQlWz/rUGWOLsiSozgSrZ33qjDGDQ9AtwA0GuAW4wQC3ADdlSVCdCVbP+tQZIyRI7lS/5lYnRjWpthj+AtWvudWJUU2qGRyCbgFuMMAtwA0GuAW4GRpQ/ZpbnRjVpAoAAAAAAACBX1c48EX+valPAAAAAElFTkSuQmCC",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dvc-sac-calendarheatmap",
+      "url": "/calendarHeatmap.js",
+      "integrity": "sha256-oBRUXLWqPC24KGHhLAUTGGt5l5YtTlzFWIwX5T0wuzs=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dvc-sac-calendarheatmap-styling",
+      "url": "/calendarHeatmapStyling.js",
+      "integrity": "sha256-0/HR8DfdnWEt89q/Nzkv0GocmYOGT5Juc73R5iW9Cck=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "width": {
+      "type": "integer",
+      "default": 1000
+    },
+    "height": {
+      "type": "integer",
+      "default": 560
+    },
+    "title": {
+      "type": "string",
+      "default": "Calendar View"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Daily values by date"
+    },
+    "orientation": {
+      "type": "string",
+      "default": "horizontal"
+    },
+    "weekStart": {
+      "type": "string",
+      "default": "sunday"
+    },
+    "cellSize": {
+      "type": "integer",
+      "default": 15
+    },
+    "colorLow": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "colorMid": {
+      "type": "string",
+      "default": "#FFFFBF"
+    },
+    "colorHigh": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "reverseScale": {
+      "type": "boolean",
+      "default": false
+    },
+    "scaleMode": {
+      "type": "string",
+      "default": "auto"
+    },
+    "domainMin": {
+      "type": "number",
+      "default": 0
+    },
+    "domainMid": {
+      "type": "number",
+      "default": 50
+    },
+    "domainMax": {
+      "type": "number",
+      "default": 100
+    },
+    "emptyColor": {
+      "type": "string",
+      "default": "#EEF1F4"
+    },
+    "showLegend": {
+      "type": "boolean",
+      "default": true
+    },
+    "showMonthLabels": {
+      "type": "boolean",
+      "default": true
+    },
+    "showWeekdayLabels": {
+      "type": "boolean",
+      "default": true
+    },
+    "showYearLabels": {
+      "type": "boolean",
+      "default": true
+    },
+    "calendarType": {
+      "type": "string",
+      "default": "standard"
+    },
+    "retailPattern": {
+      "type": "string",
+      "default": "4-4-5"
+    },
+    "retailStartDate": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Date (day granularity)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measure",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
