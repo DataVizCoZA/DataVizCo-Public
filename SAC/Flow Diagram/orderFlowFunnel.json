@@ -1,0 +1,125 @@
+{
+  "eula": "",
+  "vendor": "DataVizCo",
+  "license": "",
+  "id": "com.dvc.sac.orderflowfunnel",
+  "version": "0.3.0",
+  "name": "Order Flow Funnel",
+  "newInstancePrefix": "OrderFlowFunnel",
+  "description": "Process-flow funnel: each measure is a stage, joined by tapering flow ribbons and coloured by variance to target. Optional dimension trellises the flow by member (e.g. per DC or region).",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABlElEQVR4nO2bMU7DQBBFBwRcwam4QlpOQJpIKZMmHbeg5hZ0aUIZiSacgDZXSJVcAQqobI2TaPEuO/s98n+VYzmrP0/yTLFrEUIIIcPl6tLN8Xr203WB3WJzcQ0vXJ/eiCk+5fm+0RKQWoxnCTe5FhqvZ4/19W6x+ci1rjXZBGg8yTARoNEyRPonxFyAiMj2+3Pb/FhVwWdHy2PRqXI2BXLTKr4Dh1VVtKGaCogtvqakhCKvQAqHVdX0jtHyaNY3eitAYynDhQCNliHyfyHuBIiIfL09Nb1lPw0/e//+Epwq5lMgN7r4Luynz8GG6kpAbPE1IQmuBFhAAegAaCgAHQANBaADoKEAdAA0FIAOgIYC0AHQUAA6ABoKQAdAQwHoAGgoAB0ADQWgA6ChAHSAGO7mr5OU/4W2x1wJEImX8NfeoMvNUS1hcLvDgzwfMMgTIpZFa0yb4OT2IalrlzwqZz4FYiWUPidY5BXQEgZ3UrRvBZ9iIqDvRWuyCfBUtKbVBFM/f/H82czZFIgtxnPxhBAyeH4BKX5r2YGDbykAAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dvc-sac-orderflowfunnel",
+      "url": "/orderFlowFunnel.js",
+      "integrity": "sha256-WTNZxD+LZ/j3Ejd1ZKLAhFmzTCugy3VW3XpW8JdZJ0g=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dvc-sac-orderflowfunnel-styling",
+      "url": "/orderFlowFunnelStyling.js",
+      "integrity": "sha256-K9eXOpOTloDxg+Uf6/aAYVG6+B6CYxmmU1JUPTlK34U=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "width": {
+      "type": "integer",
+      "default": 1280
+    },
+    "height": {
+      "type": "integer",
+      "default": 720
+    },
+    "title": {
+      "type": "string",
+      "default": "Order Fulfilment Flow"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Rate at each stage vs target"
+    },
+    "targets": {
+      "type": "string",
+      "default": ""
+    },
+    "defaultTarget": {
+      "type": "number",
+      "default": 99
+    },
+    "amberThreshold": {
+      "type": "number",
+      "default": 2
+    },
+    "redThreshold": {
+      "type": "number",
+      "default": 10
+    },
+    "goodColor": {
+      "type": "string",
+      "default": "#2FA84F"
+    },
+    "warnColor": {
+      "type": "string",
+      "default": "#E8A317"
+    },
+    "badColor": {
+      "type": "string",
+      "default": "#E24C7B"
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimalSeparator": {
+      "type": "string",
+      "default": ","
+    },
+    "showTargetGhost": {
+      "type": "boolean",
+      "default": true
+    },
+    "showLegend": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Trellis (optional)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Stages (one measure each, in order)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  },
+  "supportsExport": true
+}
