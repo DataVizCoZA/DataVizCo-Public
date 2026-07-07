@@ -1,5 +1,8 @@
 # Calendar Heatmap — SAC Custom Widget (v0.1.0)
 
+![Example Image](Example.png)
+
+
 A dense calendar heatmap for SAP Analytics Cloud. Plots a **measure** against a
 **date** field, one cell per day, coloured on a configurable scale. Toggle between
 a **horizontal** layout (weekday rows, week columns, one band per year — the
