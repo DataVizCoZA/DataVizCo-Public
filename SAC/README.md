@@ -9,5 +9,5 @@ Currently available.
 ![Calendar Example](Calendar%20Heatmap/Example.png)
 
 
-2. Flow Visualization
-![Flow  Example](Calendar%20Heatmap/Example.png)
+2. Flow Diagram
+![Flow  Example](Flow%20Diagram/Example.png)
